@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { Button } from './Button'
@@ -21,6 +21,12 @@ function Navbar () {
       setButton(true)
     }
   }
+
+  //problem solved here as the signup button keeps showing up when the user refresh the page in small screen.
+
+  useEffect(() => {
+    showButton()
+  }, [])
 
   window.addEventListener('resize', showButton)
 
